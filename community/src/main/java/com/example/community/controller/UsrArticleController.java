@@ -21,6 +21,13 @@ public class UsrArticleController {
         makeTestData();
     }
 
+    private void modifyArticle(int id, String title, String body) {
+        Article article = getArticle(id);
+
+        article.setTitle(title);
+        article.setBody(body);
+    }
+
     private void makeTestData() {
         for (int i = 1; i <= 10; i++) {
             String title = "제목 " + i;
@@ -82,5 +89,19 @@ public class UsrArticleController {
         }
 
         return null;
+    }
+
+    @RequestMapping("/usr/article/doModify")
+    @ResponseBody
+    public String doModify(int id, String title, String body) {
+        Article article = getArticle(id);
+
+        if ( article == null ) {
+            return id + "번 게시물이 존재하지 않습니다.";
+        }
+
+        modifyArticle(id, title, body);
+
+        return id + "번 게시물을 수정하였습니다.";
     }
 }
