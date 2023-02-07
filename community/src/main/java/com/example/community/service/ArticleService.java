@@ -14,9 +14,7 @@ public class ArticleService {
     @Autowired
     private final ArticleMapper articleMapper;
 
-    @Transactional
-    public int write(Article article) {
-        articleMapper.save(article);
-        return article.getId();
+    public Article writeArticle(String title, String body) {
+        return articleMapper.writeArticle(title, body);
     }
 }

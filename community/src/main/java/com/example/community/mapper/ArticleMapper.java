@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface ArticleMapper {
 
-    Long save(Article article);
+    Article writeArticle(String title, String body);
 }
