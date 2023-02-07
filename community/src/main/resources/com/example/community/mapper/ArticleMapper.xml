@@ -5,4 +5,16 @@
     <insert id ="writeArticle" parameterType="com.example.community.entity.Article" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO article (title, body) VALUES (#{title}, #{body});
     </insert>
+
+    <update id ="modifyArticle" parameterType="com.example.community.entity.Article">
+        UPDATE article
+        SET title = #{title}, body = #{body}
+        WHERE id = #{id};
+    </update>
+
+    <delete id ="deleteArticle" parameterType="Long">
+        DELETE
+        FROM article
+        WHERE id = #{id};
+    </delete>
 </mapper>

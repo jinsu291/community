@@ -17,4 +17,12 @@ public class ArticleService {
     public Article writeArticle(String title, String body) {
         return articleMapper.writeArticle(title, body);
     }
+
+    public void modifyArticle(int id, String title, String body) {
+        articleMapper.modifyArticle(id, title, body);
+    }
+
+    public void deleteArticle(int id) {
+        articleMapper.deleteArticle(id);
+    }
 }
