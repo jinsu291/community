@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -24,5 +26,13 @@ public class ArticleService {
 
     public void deleteArticle(int id) {
         articleMapper.deleteArticle(id);
+    }
+
+    public List<Article> getArticles() {
+        return articleMapper.getArticles();
+    }
+
+    public Article getArticle(int id) {
+        return articleMapper.getArticle(id);
     }
 }
